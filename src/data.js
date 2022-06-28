@@ -12,7 +12,7 @@ import roraima from "./assets/norte/roraima.jpg";
 import tocantins from "./assets/norte/tocantins.jpg";
 
 //nordeste pics
-import nordeste_banner from "./assets/nordeste/norte_banner.jpg";
+import nordeste_banner from "./assets/nordeste/nordeste_banner.jpg";
 
 import alagoas from "./assets/nordeste/alagoas.jpg";
 import bahia from "./assets/nordeste/bahia.jpg";
@@ -25,7 +25,7 @@ import rio_grande_do_norte from "./assets/nordeste/rio_grande_do_norte.jpg";
 import sergipe from "./assets/nordeste/sergipe.jpg";
 
 //centro-oeste pics
-import centro_oeste_banner from "./assets/centro_oeste/norte_banner.jpg";
+import centro_oeste_banner from "./assets/centro_oeste/centro_oeste_banner.jpeg";
 
 import df from "./assets/centro_oeste/df.jpg";
 import goias from "./assets/centro_oeste/goias.jpg";
@@ -33,7 +33,7 @@ import mato_grosso from "./assets/centro_oeste/mato_grosso.jpg";
 import mato_grosso_do_sul from "./assets/centro_oeste/mato_grosso_do_sul.jpg";
 
 //sudeste pics
-import sudeste_banner from "./assets/sudeste/norte_banner.jpg";
+import sudeste_banner from "./assets/sudeste/sudeste_banner.jpg";
 
 import minas from "./assets/sudeste/minas.jpg";
 import espirito_santo from "./assets/sudeste/espirito_santo.jpg";
@@ -41,13 +41,13 @@ import rio from "./assets/sudeste/rio.jpg";
 import sao_paulo from "./assets/sudeste/sao_paulo.jpg";
 
 //sul pics
-import sul_banner from "./assets/sul/norte_banner.jpg";
+import sul_banner from "./assets/sul/sul_banner.jpg";
 
 import parana from "./assets/sul/parana.jpg";
 import rio_grande_do_sul from "./assets/sul/rio_grande_do_sul.jpg";
 import santa_catarina from "./assets/sul/santa_catarina.jpg";
 
-export const data = {
+const data = {
   country: "brazil",
   info: "",
   banner: brazil_banner,
@@ -251,3 +251,4 @@ export const data = {
     },
   ],
 };
+export default data;
