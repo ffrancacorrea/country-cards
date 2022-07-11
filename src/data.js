@@ -1,4 +1,5 @@
 import brazil_banner from "./assets/brazil_banner.jpg";
+import icon from "./assets/br_icon.webp";
 
 //norte pics
 import norte_banner from "./assets/norte/norte_banner.jpg";
@@ -51,6 +52,7 @@ const data = {
   country: "brazil",
   info: "",
   banner: brazil_banner,
+  icon: icon,
   regions: [
     {
       name: "Norte",
@@ -166,7 +168,7 @@ const data = {
       name: "Centro-Oeste",
       info: "",
       banner: centro_oeste_banner,
-      estados: [
+      states: [
         {
           name: "Distrito Federal",
           capital: "Brasília",
