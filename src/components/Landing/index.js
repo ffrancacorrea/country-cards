@@ -1,7 +1,10 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import styled from "@emotion/styled";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 
+import Header from "../Header";
 import Card from "../Card";
 
 const Wrapper = styled.div`
@@ -9,127 +12,124 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   background-image: ${({ banner }) =>
-    `linear-gradient(to bottom,  rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(${banner})`};
+    `linear-gradient(to bottom,  rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${banner})`};
   background-size: cover;
+
+  transition-property: all;
+  transition-duration: 2s;
 `;
-const Header = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  height: 60px;
-  background-color: green;
-  position: absolute;
-`;
-const Icon = styled.div`
-  padding: 10px;
-  img {
-    width: 40px;
-  }
-`;
-const Dropdown = styled.div`
-  position: relative;
-  display: inline-block;
-  .btn {
-    background-color: #04aa6d;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-  }
 
-  .content {
-    display: none;
-    position: absolute;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-  }
-
-  .content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-
-  .content a:hover {
-    background-color: #ddd;
-  }
-
-  &:hover .content {
-    display: block;
-  }
-
-  &:hover .dropbtn {
-    background-color: #3e8e41;
-  }
-`;
 const Container = styled.div`
   width: 100%;
-  display: flex;
-`;
-const Info = styled.div`
-  width: 100%;
   height: 100vh;
+  color: white;
+  display: flex;
+  margin-top: 30vh;
+`;
+const RegionInfo = styled.div`
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin: 0 70px;
+  text-align: center;
+  width: 100%;
+  h1 {
+    font-size: 80px;
+  }
+  p {
+    text-align: justify;
+    font-size: 20px;
+    background-color: white;
+    color: #222;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    padding: 30px;
+  }
 `;
 const RegionCards = styled.div`
   display: flex;
-  width: 100%;
-  background-color: transparent;
-  height: 100%;
-  margin-top: 40vh;
-  overflow: scroll;
-  color: red;
-`;
-const CardWrapper = styled.div`
-  display: flex;
   justify-content: space-between;
+  justify-content: center;
   width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
 `;
 
 const Landing = ({ data }) => {
   const [selectedRegion, setSelectedRegion] = useState({});
-  const [selectedState, setSelectedState] = useState({});
+  const [selectedState, setSelectedState] = useState("");
+
+  useEffect(() => {
+    console.log("isSelected", selectedRegion);
+  }, [selectedRegion]);
 
   if (data)
     return (
       <Wrapper banner={selectedRegion.banner || data.banner}>
-        <Header>
-          <Icon>
-            <img src={data.icon}></img>{" "}
-          </Icon>
-          <Dropdown class="dropdown">
-            <div class="btn">Dropdown</div>
-            <div class="content">
-              {data.regions.map((region) => (
-                <a href="#" onClick={() => setSelectedRegion(region)}>
-                  {region.name}
-                </a>
-              ))}
-            </div>
-          </Dropdown>
-        </Header>
+        <Header
+          data={data}
+          getSelectedRegion={(region) => setSelectedRegion(region)}
+        ></Header>
         <Container>
-          <Info></Info>
-          {Object.keys(selectedRegion).length !== 0 && (
-            <RegionCards>
-              {data.regions.map(
-                (region) =>
-                  selectedRegion === region && (
-                    <CardWrapper>
-                      {region.states.map((state) => (
-                        <Card
-                          onClick={() => setSelectedState(state)}
-                          title={state.name}
-                          image={state.image}
-                          isSelected={selectedState === state}
-                        ></Card>
-                      ))}
-                    </CardWrapper>
-                  )
-              )}
-            </RegionCards>
-          )}
+          <RegionInfo>
+            {Object.keys(selectedRegion).length !== 0 ? (
+              <div>
+                <h1>{selectedRegion.name}</h1>
+                <p>{selectedRegion.info}</p>
+              </div>
+            ) : (
+              <div>
+                <h1>{data.country}</h1>
+                <p>{data.info}</p>
+              </div>
+            )}
+          </RegionInfo>
+          <RegionCards>
+            {Object.keys(selectedRegion).length !== 0 && (
+              <Swiper
+                //spaceBetween={300}
+                breakpoints={{
+                  "@0.5": {
+                    slidesPerView: 1,
+                    spaceBetween: 50,
+                  },
+                  "@0.75": {
+                    slidesPerView: 2,
+                    spaceBetween: 250,
+                  },
+                  "@1.00": {
+                    slidesPerView: 2,
+                    spaceBetween: 300,
+                  },
+                  "@1.50": {
+                    slidesPerView: 3,
+                    spaceBetween: 300,
+                  },
+                }}
+                slidesPerView={3}
+                centeredSlides={true}
+                initialSlide={2}
+                onSlideChange={() => console.log("slide change")}
+                onSwiper={(swiper) => console.log(swiper)}
+              >
+                {selectedRegion.states.map((state) => (
+                  <SwiperSlide>
+                    {" "}
+                    <Card
+                      onClick={() => {
+                        console.log("clicked");
+                        setSelectedState(state.name);
+                      }}
+                      title={state.name}
+                      image={state.image}
+                      isSelected={selectedState === state.name}
+                    ></Card>
+                  </SwiperSlide>
+                ))}
+                ...
+              </Swiper>
+            )}
+          </RegionCards>
         </Container>
       </Wrapper>
     );
