@@ -56,7 +56,7 @@ const data = {
   regions: [
     {
       name: "Norte",
-      info: "",
+      info: "A região Norte é bastante conhecida por dois aspectos principais: é a maior região do Brasil em termos de extensão territorial e é a que concentra a maior biodiversidade graças à existência da Floresta Amazônica. Mais da metade dessa floresta está localizada no território brasileiro. Devido à presença da floresta, é na região Norte que percebemos a grande influência que a paisagem natural possui sobre as ocupações humanas no espaço geográfico. A existência de comunidades ribeirinhas e o uso com frequência de rios para o transporte de pessoas e/ou cargas podem exemplificar essa influência.",
       banner: norte_banner,
       states: [
         {
@@ -105,7 +105,7 @@ const data = {
     },
     {
       name: "Nordeste",
-      info: "",
+      info: "A região Nordeste tem várias características bem peculiares a ela. Podemos destacar duas: a primeira dá-se pelo fato de ser a região de colonização mais antiga do país, sendo ocupada pelos portugueses desde sua chegada, em 1500. Outra característica peculiar dessa região é em relação ao clima. Devido à presença de solos rasos e pobres, além da proximidade com a Linha do Equador, muitos estados possuem o clima semiárido, o que faz alguns rios secarem completamente, além de cidades inteiras ficarem sem chuva durante seis meses ou mais ao longo do ano.",
       banner: nordeste_banner,
       states: [
         {
@@ -166,7 +166,7 @@ const data = {
     },
     {
       name: "Centro-Oeste",
-      info: "",
+      info: "A região Centro-Oeste é relativamente extensa, ocupando, aproximadamente, 19% do território brasileiro. Entretanto, seus estados — Goiás, Mato Grosso, Mato Grosso do Sul e Distrito Federal — não são muito povoados, tendo uma das menores densidades demográficas do Brasil. Outra característica marcante do Centro-Oeste é sua força no setor primário da economia. As atividades agrícolas e pecuaristas são destaques nos três maiores estados em extensão territorial, com ênfase para o Mato Grosso, que possui o maior rebanho bovino brasileiro.",
       banner: centro_oeste_banner,
       states: [
         {
@@ -197,7 +197,7 @@ const data = {
     },
     {
       name: "Sudeste",
-      info: "",
+      info: "A região Sudeste é conhecida por sua força econômica e suas grandes cidades. Nela estão localizadas São Paulo, Rio de Janeiro e Belo Horizonte, algumas das principais cidades brasileiras e importantíssimas para a economia nacional. Fato marcante no Sudeste é sua população. A região é a mais populosa do Brasil, com mais de 90% da população morando em áreas urbanas, sendo também a mais urbanizada. Além disso, seus índices econômicos são altos, assim como a taxa de industrialização. Em um passado não muito distante, no século XX, foi o território que mais atraiu migrantes em busca de melhores condições de vida e oportunidades de trabalho.",
       banner: sudeste_banner,
       states: [
         {
@@ -228,7 +228,7 @@ const data = {
     },
     {
       name: "Sul",
-      info: "",
+      info: "A região Sul do Brasil tem como uma de suas características a forte presença europeia em seu processo de colonização e povoamento. Assim, possui traços europeus marcantes na arquitetura, na culinária, na população e até no clima, pois é a única do país cujos estados estão abaixo do Trópico de Capricórnio. Devido ao clima, essa região atraiu muitos europeus durante os séculos XIX e XX, o que possibilitou um processo de colonização diferente de outras regiões brasileiras.",
       banner: sul_banner,
       states: [
         {
